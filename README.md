@@ -29,3 +29,14 @@
 ### Docker API
 
 
+### Docker Commands
+
+- ``docker pull <image_name>``
+- ``docker run <image_name>`` (``hello-world`` to pull and run hello-world to ensure everything installed correctly)
+- ``docker images`` to see available images
+- ``docker build -t <image_name>``
+- ``docker commit <image_name>/<container-id>``
+- ``docker start <container-id>``
+- ``docker stop <image_name>/<container-id>``
+- ``docker rm <image_name>/<container-id>``
+- ``docker ps and ps -a``` to check the existing containers
