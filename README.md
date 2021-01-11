@@ -28,6 +28,8 @@
 
 ### Docker API
 
+![](images/architecture.png)
+
 
 ### Docker Commands
 
