@@ -37,6 +37,17 @@
 - ``docker build -t <image_name>``
 - ``docker commit <image_name>/<container-id>``
 - ``docker start <container-id>``
-- ``docker stop <image_name>/<container-id>``
-- ``docker rm <image_name>/<container-id>``
+- ``docker stop <container-id>``
+- ``docker rm <container-id>``
+- ``docker image rm <image_name>``
 - ``docker ps and ps -a``` to check the existing containers
+
+```
+docker run -d -p 80:80 <image_name>
+```
+- ``-d``: Detached, by design, containers started in detached mode exit when the root process used to run the container exits, unless ``--rm`` is also specified
+- ``-p``: To explicitly map a single port or range of ports
+
+### Logging into a Running Container
+
+``docker exec -it <image_name>/<container-id>``
