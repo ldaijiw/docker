@@ -83,3 +83,20 @@ docker image rm <image_name>
 ```
 - Running the image again will prompt the daemon to search online for the latest version of the image
 
+### Building a Docker Image
+
+- To build a docker image need to create a Dockerfile
+- To automate tasks in an image/container
+- Information required inside Dockerfile
+	- Depends on client requirements
+	- Dependencies to run the app/db
+- Need to wrap dependencies in Dockerfile as well as the execution commands
+
+**Syntax**
+
+- ``FROM``: used to tell docker which base image to use to build new image
+- ``LABEL``: Add labels (e.g. add maintainer ``MAINTAINER=lwaltmann@spartaglobal.com``)
+- ``COPY``: files/folders from localhost to container/image
+- ``EXPOSE``: to map ports
+- ``CMD``: to execute terminal commands
+	- e.g. for nginx: ``["nginx", "-g", "daemon off"]``
