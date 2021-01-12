@@ -63,6 +63,12 @@ For documentation to be available on localhost
 alias docker="winpty docker"
 ```
 
+- ``docker history <image_name>`` to view history
+- ``docker inspect <image_name>`` to inspect more closely (can see what terminal commands are being run)
+- ``docker logs <container_id>`` to view logs of container
+	- can redirect to logs file with ``>> logs.txt`` (must be run with ``docker`` and not alias of ``winpty docker``)
+
+
 ### DockerHub
 
 - Repository name and local folder name must match
@@ -76,3 +82,4 @@ docker push ldaijiw/repo_name
 docker image rm <image_name>
 ```
 - Running the image again will prompt the daemon to search online for the latest version of the image
+
