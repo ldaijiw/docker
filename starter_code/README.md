@@ -40,3 +40,4 @@ docker run -d -p 80:3000 ldaijiw/eng74_nodeapp
 docker commit <container_id> ldaijiw/eng74_nodeapp
 docker push ldaijiw/eng74_nodeapp
 ```
+The docker image can then be downloaded and run from any machine by specifying the image name: ``ldaijiw/eng74_nodeapp``
