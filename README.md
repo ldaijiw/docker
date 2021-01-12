@@ -71,4 +71,8 @@ alias docker="winpty docker"
 docker commit <container_id> ldaijiw/repo_name
 docker push ldaijiw/repo_name
 ```
-
+- Due to the architecture of Docker, when creating a new container from the image, the daemon will search locally first instead of finding the latest version from the online registry, and so after pushing to Docker delete the image with
+```
+docker image rm <image_name>
+```
+- Running the image again will prompt the daemon to search online for the latest version of the image
