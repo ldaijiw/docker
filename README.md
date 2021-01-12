@@ -50,6 +50,25 @@ docker run -d -p 80:80 <image_name>
 - ``-d``: Detached, by design, containers started in detached mode exit when the root process used to run the container exits, unless ``--rm`` is also specified
 - ``-p``: To explicitly map a single port or range of ports
 
+For documentation to be available on localhost
+```docker run -d -p 4000:4000 docs/docker.github.io```
+
+- ``docker cp <filename> <container_id>:dir/to/path`` to copy files from local to container
 ### Logging into a Running Container
 
 ``docker exec -it <image_name>/<container-id>``
+
+**FOR WINDOWS RUN FIRST**
+```
+alias docker="winpty docker"
+```
+
+### DockerHub
+
+- Repository name and local folder name must match
+- Commit to save changes to image, then push to dockerhub (will default tag to "latest")
+```
+docker commit <container_id> ldaijiw/repo_name
+docker push ldaijiw/repo_name
+```
+
