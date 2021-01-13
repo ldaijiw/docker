@@ -100,3 +100,20 @@ docker image rm <image_name>
 - ``EXPOSE``: to map ports
 - ``CMD``: to execute terminal commands
 	- e.g. for nginx: ``["nginx", "-g", "daemon off"]``
+
+## Microservices
+
+- Idea is to split your application into a set of smaller, inter-connected services that are:
+	- Highly maintainable and testable
+	- Loosely coupled
+	- Independently deployable
+	- Organised around business capabilities
+	- Owned by small teams
+
+### Microservices vs. Monolithic Architecture
+
+A monolithic application is built as a single unit that combines the UI, business logic, and data access layer into one. In contrast, microservices separates the application into smaller units/services that perform one action.
+
+Monolithic architectures can be helpful for smaller projects as it reduces complexity, but for bigger, more important projects where downtime can result in severe loss of business, microservices are beneficial for not having a single point of failure, as well as making it simpler to replace containers that break, and making the process of scaling out easier.
+
+![](images/mservice_mono.jpg
