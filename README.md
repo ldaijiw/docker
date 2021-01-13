@@ -41,7 +41,7 @@
 - ``docker start <container-id>``
 - ``docker stop <container-id>``
 - ``docker rm <container-id>``
-- ``docker image rm <image_name>``
+- ``docker rmi <image_name>``
 - ``docker ps and ps -a``` to check the existing containers
 
 ```

@@ -8,7 +8,7 @@ To containerise the node app the following actions are written in the Dockerfile
 - ``EXPOSE 3000`` expose 3000 for app to run correctly
 - ``CMD ["npm", "start", "app.js;"]`` final command to start the app
 
-**Dockerfile**
+**Development Dockerfile**
 ```
 FROM node
 
@@ -41,3 +41,31 @@ docker commit <container_id> ldaijiw/eng74_nodeapp
 docker push ldaijiw/eng74_nodeapp
 ```
 The docker image can then be downloaded and run from any machine by specifying the image name: ``ldaijiw/eng74_nodeapp``
+
+## Multi-Stage Build
+
+Using the development image can be useful for testing and additional configuration, but the image size may be relatively large. Once everything is working with the development image, multi-stage builds can be used to create a lightweight image, without having to write a new Dockerfile.
+
+Add another stage with a more lightweight image (``FROM node:alpine``) and copy any necessary files from the first stage, and then run any necessary commands. For the node app, multi-stage builds reduced the image size from ~970MB to ~120MB.
+```
+FROM node as APP
+
+LABEL MAINTAINER=lwaltmann@spartaglobal.com
+
+# Create app directory
+WORKDIR /usr/src/app
+
+COPY app/ .
+
+RUN npm install
+
+FROM node:alpine
+
+COPY --from=app /usr/src/app /usr/src/app
+
+WORKDIR /usr/src/app
+
+EXPOSE 3000
+
+CMD ["npm", "start", "app.js;"]
+```
