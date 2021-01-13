@@ -116,4 +116,4 @@ A monolithic application is built as a single unit that combines the UI, busines
 
 Monolithic architectures can be helpful for smaller projects as it reduces complexity, but for bigger, more important projects where downtime can result in severe loss of business, microservices are beneficial for not having a single point of failure, as well as making it simpler to replace containers that break, and making the process of scaling out easier.
 
-![](images/mservice_mono.jpg
+![](images/mservice_mono.jpg)
