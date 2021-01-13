@@ -48,6 +48,8 @@ Using the development image can be useful for testing and additional configurati
 
 Add another stage with a more lightweight image (``FROM node:alpine``) and copy any necessary files from the first stage, and then run any necessary commands. For the node app, multi-stage builds reduced the image size from ~970MB to ~120MB.
 ```
+## MongoDB Dockerfile
+```
 FROM node as APP
 
 LABEL MAINTAINER=lwaltmann@spartaglobal.com
@@ -68,4 +70,12 @@ WORKDIR /usr/src/app
 EXPOSE 3000
 
 CMD ["npm", "start", "app.js;"]
+```
+FROM mongo
+
+COPY mongod.conf /etc/
+
+EXPOSE 27017
+
+CMD ["mongod"]
 ```
